@@ -13,6 +13,8 @@ constant clock_freq : natural := 100E6;
 constant clock_period : time := 1 sec / clock_freq;
 constant half_clock_period : time := clock_period / 2;
 
+signal test_ok : boolean := false;
+
 signal clk : std_logic := '1';
 signal rst : std_logic := '1';
 signal opcode : std_logic_vector(1 downto 0); -- "00" nop, "01" add, "10" unsigned sub, "11" signed sub
@@ -57,9 +59,12 @@ begin
 	wait until rising_edge(clk);				-- DUT registers inputs
 	wait until rising_edge(clk);				-- DUT registers outputs
 			
-	wait for 2 * clock_period;
+	wait for clock_period;
 	report ("*** TEST COMPLETED OK ***");
+	test_ok <= true; 
+	wait for clock_period;
 	std.env.finish;
+
 		
 end process;
 	
