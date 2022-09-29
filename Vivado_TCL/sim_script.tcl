@@ -1,3 +1,4 @@
+# run a single simulation and report the result to the console
 launch_simulation -simset sim_1 -quiet
 puts [current_time]
 puts [get_value test_ok]

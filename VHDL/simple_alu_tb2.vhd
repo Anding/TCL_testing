@@ -4,10 +4,10 @@ use ieee.numeric_std.all;
 
 library test;
 
-entity simple_alu_tb1 is
+entity simple_alu_tb2 is
 end entity;
 	
-architecture sim of simple_alu_tb1 is
+architecture sim of simple_alu_tb2 is
 constant alu_width : integer := 8;
 constant clock_freq : natural := 100E6;
 constant clock_period : time := 1 sec / clock_freq;
@@ -49,10 +49,10 @@ begin
 	rst <= '0';
 	wait until rising_edge(clk);
 		
-	op_A <= x"01"; op_B <= x"02"; opcode <= "01";
+	op_A <= x"03"; op_B <= x"02"; opcode <= "10";
 	wait until rising_edge(clk);				-- DUT registers inputs
 	wait until rising_edge(clk);				-- DUT registers outputs
-	wait for 1 ps;	assert result = x"03"		-- delta cycle before assert
+	wait for 1 ps;	assert result = x"01"		-- delta cycle before assert
 		report "add failed" severity failure;
 	
 	op_A <= x"00"; op_B <= x"00"; opcode <= "00";
