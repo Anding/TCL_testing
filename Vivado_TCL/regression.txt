@@ -1,0 +1,8 @@
+Fri Sep 30 12:02:31 +0800 2022
+*** REGRESSION TESTS PASSED ***
+sim_1
+runtime {120 ns} test_ok TRUE
+sim_2
+runtime {120 ns} test_ok TRUE
+sim_3
+runtime {120 ns} test_ok TRUE
