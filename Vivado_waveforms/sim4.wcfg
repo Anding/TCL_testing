@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="textbench_recorder_tb01_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="testbench_recorder" />
+            <top_module name="textbench_recorder_tb01" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0 ps"></ZoomStartTime>
+      <ZoomEndTime time="7 ps"></ZoomEndTime>
+      <Cursor1Time time="60,000 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="281"></NameColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="2" />
+   <wvobject fp_name="/textbench_recorder_tb01/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/textbench_recorder_tb01/test_ok" type="other">
+      <obj_property name="ElementShortName">test_ok</obj_property>
+      <obj_property name="ObjectShortName">test_ok</obj_property>
+   </wvobject>
+</wave_config>
