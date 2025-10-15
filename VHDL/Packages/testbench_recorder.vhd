@@ -12,7 +12,7 @@ package testbench_recorder is
 	subtype fixed_string is string(1 to STR_LEN);
 	type string_array is array (0 to MAX_RESULTS - 1) of fixed_string;
 
---	protected type testbench_recorder_protected is
+	type testbench_recorder_protected is protected
 	
 	procedure make_record (record_string : in string); 
 		-- call this at every clock cycle with a string represention of critical signals; no need for initialization
@@ -21,22 +21,18 @@ package testbench_recorder is
 	procedure load_reference_recording ( filename : in string);
 		-- call this before subsequent testbench runs to load the recording of the known-good run
 	procedure verify_recording_to_reference;	
-		-- call at the end of the run to ASSERT for differences between the last recording and the known-good run
-			
-			
--- private
-	
-	shared variable index : natural := 0;
-	shared variable testbench_recording : string_array := (others => (others => ' '));
-	shared variable testbench_reference : string_array := (others => (others => ' '));		
-	
---	end protected;
+		-- call at the end of the run to ASSERT for differences between the last recording and the known-good run		
+	end protected;
 
 end package;
 
 -- package body
 package body testbench_recorder is
---	protected body testbench_recorder_protected is
+	type testbench_recorder_protected is protected body
+	
+	variable index : natural := 0;
+	variable testbench_recording : string_array := (others => (others => ' '));
+	variable testbench_reference : string_array := (others => (others => ' '));		
 
 	procedure make_record (record_string : in string)  is
 	begin
@@ -82,7 +78,7 @@ package body testbench_recorder is
 		end loop;
 	end procedure;
 
---	end protected;
+	end protected body;
 
 end package body;
 
