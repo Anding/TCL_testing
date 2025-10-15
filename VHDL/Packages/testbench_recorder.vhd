@@ -10,7 +10,7 @@ package testbench_recorder is
 	constant STR_LEN     : natural := 128;
 
 	subtype fixed_string is string(1 to STR_LEN);
-	type string_array is array (0 to MAX_RESULTS - 1) of fixed_string;
+	type string_array is array (0 to MAX_RESULTS -1) of fixed_string;
 
 	type testbench_recorder_protected is protected
 	
@@ -43,13 +43,13 @@ package body testbench_recorder is
     procedure verify_recording_to_reference is
     begin
     	assert testbench_recording'length = testbench_reference'length
-    		report " Recording clock cycles: " & integer'image(testbench_recording'length) & "\n" &
+    		report " Recording clock cycles: " & integer'image(testbench_recording'length) & character'VAL(10) &
     				 " Reference clock cycles: " & integer'image(testbench_reference'length)
     		severity failure;
-    	for i in 0 to testbench_reference'length loop
+    	for i in 0 to testbench_reference'length - 1 loop
     		assert testbench_recording(i) = testbench_reference(i)
-    			report "Clock cycle: " & natural'image(i) & "\n" &
-    					 "Recording: " & testbench_recording(i) & "\n" &
+    			report "Clock cycle " & natural'image(i) & character'VAL(10) &
+    					 "Recording: " & testbench_recording(i) & character'VAL(10) &
     					 "Reference: " & testbench_reference(i)
     			severity failure;
     	end loop;
@@ -65,12 +65,12 @@ package body testbench_recorder is
   		end loop;  	
 	end procedure;
 	
-
 	procedure load_reference_recording ( filename : in string) is
 		file in_file : text open read_mode is filename;
   		variable L : line;
   		variable temp_string : fixed_string;
 	begin
+		testbench_reference := (others => (others => ' '));
 		for i in testbench_reference'range loop
 			readline(in_file, L);
 			read(L, temp_string);

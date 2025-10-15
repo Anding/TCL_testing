@@ -37,8 +37,11 @@ begin
 		tb_rec.make_record("three");		
 	
 	wait for 2 * clock_period;
-		tb_rec.save_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log");
-			
+		tb_rec.save_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log00");
+		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log01");	
+		tb_rec.verify_recording_to_reference;		
+		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log02");	
+		tb_rec.verify_recording_to_reference;						
 	report ("*** TEST COMPLETED OK ***");
 	test_ok <= true; 
 	wait for clock_period;
