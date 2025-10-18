@@ -4,8 +4,8 @@ use ieee.numeric_std.all;
 
 use std.textio.all;
 
-library work;
 -- use the package
+library work;
 use work.testbench_recorder.all;
 
 entity textbench_recorder_tb01 is
@@ -30,6 +30,7 @@ sequencer: process is
 begin
 	
 	wait for clock_period; 
+		-- save a string record with each clock cycle, likely by converting key signals to strings
 		tb_rec.make_record("one");
 	wait for clock_period; 
 		tb_rec.make_record("two");		
@@ -37,12 +38,15 @@ begin
 		tb_rec.make_record("three");		
 	
 	wait for 2 * clock_period;
-		tb_rec.save_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log00");
-		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log01");	
-		tb_rec.verify_recording_to_reference;		
-		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01.log02");	
-		tb_rec.verify_recording_to_reference;						
-	report ("*** TEST COMPLETED OK ***");
+		-- save a known-good run of the DUT to a reference file
+		tb_rec.save_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01_log00.txt");
+		-- load a previously recorded known-good reference run
+		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01_log01.txt");	
+		-- compare the present recording to the reference
+		tb_rec.verify_recording_to_reference;		-- log01 passes
+		tb_rec.load_reference_recording("E:\coding\TCL_testing\VHDL\Packages\testbench_recorder_tb01_log02.txt");	
+		tb_rec.verify_recording_to_reference;		-- log02 fails, the testbench fails here and reports a difference in the logs	in the console			
+	report ("*** TEST COMPLETED OK ***");			-- never reached in this testbench
 	test_ok <= true; 
 	wait for clock_period;
 	std.env.finish;
