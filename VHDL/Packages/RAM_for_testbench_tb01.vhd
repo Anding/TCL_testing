@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 -- use the package
 library work;
-use work.RAM_for_testbench.all;
+use work.bram.all;
 
 entity RAM_for_testbench_tb01 is
 end entity;
@@ -22,12 +22,6 @@ signal mem_data_to_RAM_a, mem_data_to_RAM_b : std_logic_vector( data_width -1 do
 signal mem_data_from_RAM_a, mem_data_from_RAM_b : std_logic_vector( data_width -1 downto 0 ) := (others =>'0');
 signal we_a, we_b : std_logic := '0';
 
-package is bram new work.RAM_for_testbench
-  generic map (
-    DATA_WIDTH => 32,
-    ADDR_WIDTH => 8
-  );
-
 begin
 	
 clk <= not clk after half_clock_period;
@@ -36,8 +30,8 @@ clk <= not clk after half_clock_period;
 memory: process is
 begin	
 	wait until rising_edge(clk);
-	bram.memory_port(addr_a, mem_data_to_RAM_a, mem_data_from_RAM_a, we_a);
-	bram.memory_port(addr_b, mem_data_to_RAM_b, mem_data_from_RAM_b, we_b);		
+	memory_port(addr_a, mem_data_to_RAM_a, mem_data_from_RAM_a, we_a);
+	memory_port(addr_b, mem_data_to_RAM_b, mem_data_from_RAM_b, we_b);		
 end process;
 
 	
