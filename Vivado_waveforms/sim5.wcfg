@@ -12,12 +12,12 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="40.001 ns"></ZoomEndTime>
+      <ZoomEndTime time="60.001 ns"></ZoomEndTime>
       <Cursor1Time time="40.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="281"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="10" />
    <wvobject fp_name="/RAM_for_testbench_tb01/test_ok" type="other">
@@ -36,9 +36,9 @@
       <obj_property name="ElementShortName">mem_data_to_RAM_a[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_data_to_RAM_a[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/RAM_for_testbench_tb01/mem_data_from_RAM_b" type="array">
-      <obj_property name="ElementShortName">mem_data_from_RAM_b[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_from_RAM_b[31:0]</obj_property>
+   <wvobject fp_name="/RAM_for_testbench_tb01/mem_data_from_RAM_a" type="array">
+      <obj_property name="ElementShortName">mem_data_from_RAM_a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_from_RAM_a[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/RAM_for_testbench_tb01/we_a" type="logic">
       <obj_property name="ElementShortName">we_a</obj_property>
@@ -52,9 +52,9 @@
       <obj_property name="ElementShortName">mem_data_to_RAM_b[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_data_to_RAM_b[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/RAM_for_testbench_tb01/mem_data_from_RAM_a" type="array">
-      <obj_property name="ElementShortName">mem_data_from_RAM_a[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mem_data_from_RAM_a[31:0]</obj_property>
+   <wvobject fp_name="/RAM_for_testbench_tb01/mem_data_from_RAM_b" type="array">
+      <obj_property name="ElementShortName">mem_data_from_RAM_b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_from_RAM_b[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/RAM_for_testbench_tb01/we_b" type="logic">
       <obj_property name="ElementShortName">we_b</obj_property>

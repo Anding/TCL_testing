@@ -23,7 +23,7 @@ package RAM_for_testbench is
 	type memory_type	is array (0 to DEPTH - 1) of data_type;
 
 	-- wrap the following procedures is a protected type to make them methods
-	type RAM_for_testbench_protected is protected
+	type RAM_for_testbench_class is protected
 						  	
 	procedure memory_port(
 		addr : in addr_type;
@@ -38,7 +38,7 @@ end package;
 package body RAM_for_testbench is
 
 	-- following the protected type declaration in the definiton
-	type RAM_for_testbench_protected is protected body
+	type RAM_for_testbench_class is protected body
 	
 	-- in a protected type, variables are no longer shared and belong in the package body
 	variable memory : memory_type := (others => (others => '0'));
