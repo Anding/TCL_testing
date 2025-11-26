@@ -21,22 +21,27 @@ package RAM_for_testbench is
 	subtype addr_type	is std_logic_vector(ADDR_WIDTH - 1 downto 0);
 	subtype data_type is std_logic_vector(DATA_WIDTH - 1 downto 0);
 	type memory_type	is array (0 to DEPTH - 1) of data_type;
-	shared variable memory : memory_type := (others => (others => '0'));
-					
-	--type RAM_for_testbench_protected is protected	-- use a protected type 
-	  	
+
+	-- wrap the following procedures is a protected type to make them methods
+	type RAM_for_testbench_protected is protected
+						  	
 	procedure memory_port(
 		addr : in addr_type;
 	  	mem_data_to_RAM : in data_type;
 	  	signal mem_data_from_RAM : out data_type;
 	  	we : in std_logic);
 	
-	--end protected;
+	end protected;
 
 end package;
 
 package body RAM_for_testbench is
-	--type RAM_for_testbench_protected is protected body
+
+	-- following the protected type declaration in the definiton
+	type RAM_for_testbench_protected is protected body
+	
+	-- in a protected type, variables are no longer shared and belong in the package body
+	variable memory : memory_type := (others => (others => '0'));
 	
 	procedure memory_port(
 		addr : in addr_type;
@@ -52,11 +57,6 @@ package body RAM_for_testbench is
 	  	mem_data_from_RAM <= memory(addr_i);
 	 end procedure;
 	
-	--end protected body;
+	end protected body;
 end package body;
 
-package bram is new work.RAM_for_testbench
-  generic map (
-    DATA_WIDTH => 32,
-    ADDR_WIDTH => 8
-  );
