@@ -13,7 +13,7 @@ library work;
 -- package declaration
 package RAM_for_testbench is
   generic (
-    DATA_WIDTH : positive := 32;
+    DATA_WIDTH : positive := 8;
     ADDR_WIDTH : positive := 8
   );
   
@@ -31,6 +31,12 @@ package RAM_for_testbench is
 	  	signal mem_data_from_RAM : out data_type;
 	  	we : in std_logic);
 	
+	procedure save_RAM ( filename : in string);		
+		-- call this after a known-good testbench run to save the recording
+	procedure load_RAM ( filename : in string);
+		-- call this before subsequent testbench runs to load the recording of the known-good run
+	procedure verify_RAM ( filename : in string);
+		-- call this to verify the current memory contents against the saved version		
 	end protected;
 
 end package;
@@ -48,7 +54,7 @@ package body RAM_for_testbench is
 	  	mem_data_to_RAM : in data_type;
 	  	signal mem_data_from_RAM : out data_type;
 	  	we : in std_logic) is
-	variable addr_i : integer;
+		variable addr_i : integer;
 	begin
 		addr_i := to_integer(unsigned(addr));
 	  	if we = '1' then 
@@ -56,7 +62,39 @@ package body RAM_for_testbench is
 	  	end if;
 	  	mem_data_from_RAM <= memory(addr_i);
 	 end procedure;
+	 
+	procedure load_RAM ( filename : in string) is
+		file in_file : text open read_mode is filename;
+  		variable L : line;
+  		variable temp_bit_vector : bit_vector(DATA_WIDTH - 1 downto 0);
+		variable addr_i : integer := 0;
+  		variable ok_flag : boolean;
+	begin
+		while not endfile(in_file) loop
+			readline(in_file, L);
+			read(L, temp_bit_vector, ok_flag);
+			assert ok_flag;
+			memory (addr_i) := To_StdLogicVector(temp_bit_vector);			
+			addr_i := addr_i + 1;
+		end loop;		
+	end procedure;
 	
+	procedure save_RAM ( filename : in string) is
+		file out_file : text open write_mode is filename;
+  		variable L : line;
+		variable addr_i : integer := 0;
+  		variable ok_flag : boolean;
+	begin
+		for addr_i in memory'range loop 
+			write(L, To_BitVector(memory (addr_i)));		
+			writeline(out_file, L);
+		end loop;		
+	end procedure;	
+	
+	procedure verify_RAM ( filename : in string) is	
+	begin
+	end procedure;	
+		
 	end protected body;
 end package body;
 

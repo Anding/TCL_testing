@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="RAM_for_testbench_tb02_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="RAM_for_testbench" />
+            <top_module name="RAM_for_testbench_tb02" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="8.806 ns"></ZoomStartTime>
+      <ZoomEndTime time="106.239 ns"></ZoomEndTime>
+      <Cursor1Time time="90.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="198"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/RAM_for_testbench_tb02/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/test_starting" type="other">
+      <obj_property name="ElementShortName">test_starting</obj_property>
+      <obj_property name="ObjectShortName">test_starting</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/test_ending" type="other">
+      <obj_property name="ElementShortName">test_ending</obj_property>
+      <obj_property name="ObjectShortName">test_ending</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/test_ok" type="other">
+      <obj_property name="ElementShortName">test_ok</obj_property>
+      <obj_property name="ObjectShortName">test_ok</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/addr_a" type="array">
+      <obj_property name="ElementShortName">addr_a[7:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_a[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/mem_data_to_RAM_a" type="array">
+      <obj_property name="ElementShortName">mem_data_to_RAM_a[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_to_RAM_a[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/mem_data_from_RAM_a" type="array">
+      <obj_property name="ElementShortName">mem_data_from_RAM_a[7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_from_RAM_a[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/we_a" type="logic">
+      <obj_property name="ElementShortName">we_a</obj_property>
+      <obj_property name="ObjectShortName">we_a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/clock_period" type="other">
+      <obj_property name="ElementShortName">clock_period</obj_property>
+      <obj_property name="ObjectShortName">clock_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/half_clock_period" type="other">
+      <obj_property name="ElementShortName">half_clock_period</obj_property>
+      <obj_property name="ObjectShortName">half_clock_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/data_width" type="other">
+      <obj_property name="ElementShortName">data_width</obj_property>
+      <obj_property name="ObjectShortName">data_width</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RAM_for_testbench_tb02/addr_width" type="other">
+      <obj_property name="ElementShortName">addr_width</obj_property>
+      <obj_property name="ObjectShortName">addr_width</obj_property>
+   </wvobject>
+</wave_config>

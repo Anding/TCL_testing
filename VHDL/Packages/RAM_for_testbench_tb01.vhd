@@ -23,7 +23,7 @@ signal mem_data_from_RAM_a, mem_data_from_RAM_b : std_logic_vector( data_width -
 signal we_a, we_b : std_logic := '0';
 
 -- prepare to access the protected type, in an analagous way to a C++ class
-shared variable bram_inst : work.bram.RAM_for_testbench_class ;
+shared variable bram_inst : work.RAM_for_testbench_tb01_pck.RAM_for_testbench_class ;
 shared variable tb_rec_inst : work.testbench_recorder.testbench_recorder_protected ;
 begin
 	
